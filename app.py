@@ -52,7 +52,7 @@ def show_shop():
 def shop_search():
     search = request.form['search']
     data = []
-    vegans = db.session.query(Vegan).filter(Vegan.shop == search)
+    vegans = Vegan.query.filter(Vegan.shop.ilike(f"%{search}%"))
     for v in vegans:
         data.append({'shop': v.shop, 'sector': v.sector, 'region': v.region, 'address': v.address,
                      'menu': v.menu, 'latitude': v.latitude, 'longitude': v.longitude, 'image': v.image}, )

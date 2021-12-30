@@ -21,7 +21,7 @@ def insert_db():
         except Exception as e:
             lat_log = [f"error{e}", f"error{e}"]
         vegan = Vegan(shop=ws.cell(row, 2).value, address=ws.cell(row, 6).value, sector=ws.cell(row, 3).value,
-                      menu=ws.cell(row, 7).value, latitude=lat_log[0], longitude=lat_log[1],
+                      menu=ws.cell(row, 7).value, longitude=lat_log[0], latitude=lat_log[1],
                       region=ws.cell(row, 5).value,
                       image=image_scraping(ws.cell(row, 5).value + " " + ws.cell(row, 2).value))
 
@@ -56,4 +56,7 @@ def image_scraping(search):
             return f"../static/img/carrot.jpg"
 
 
-insert_db()
+# vegans = Vegan.query.filter(Vegan.shop.ilike("% %"))
+#
+# for v in vegans:
+#     print(v.shop)
