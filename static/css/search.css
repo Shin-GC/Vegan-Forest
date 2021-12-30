@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+.search_area {
+  position: absolute;
+  margin-top: -100px;
+  margin-left: 300px;
+  display: block;
+}
+.search_area .search_window {
+  position: relative;
+  width: 616px;
+  height: 52px;
+  border: 2px solid #89a831;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  line-height: 52px;
+}
+
+.search {
+  width: 455px;
+  height: 24px;
+  padding: 15px 14px;
+  margin: 1px;
+  background: #fff;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000;
+  font-weight: 700;
+  outline: 0;
+}
+.search_area .search-button {
+  position: absolute;
+  top: 0;
+  right: 56px;
+  bottom: 0;
+  width: 56px;
+  height: 52px;
+  background-color: #89a831;
+  -webkit-border-radius: 0 2px 2px 0;
+  border-radius: 0 2px 2px 0;
+  cursor: pointer;
+}
+
+.search_area .reset-button {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  bottom: 0;
+  width: 56px;
+  height: 52px;
+  background-color: #89a831;
+  -webkit-border-radius: 0 2px 2px 0;
+  border-radius: 0 2px 2px 0;
+  cursor: pointer;
+}
+
+.search-button .icon_search {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: top;
+  background: url('../img/icon-search.png');
+}
+
+.search-list #search-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 100px;
+}
+
+.reset-button .icon_reset {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: top;
+  background: url('../img/icon-reset.png');
+}
+
+.full_list {
+  margin-top: 10px;
+}
+
+.list-item {
+  text-align: left;
+  width: 250px;
+  height: 300px;
+  margin-top: 20px;
+  padding: 10px;
+  background: #e9f1e1;
+  box-shadow: 0 0 0.3em hsl(109, 26%, 48%);
+}
+.list-item img {
+  width: 230px;
+  box-shadow: 0 0 0.1em hsl(108, 39%, 38%);
+}
+
+.list-item .shopName {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.list-item .shopAdd {
+  margin-top: 5px;
+  font-size: 12px;
+}
