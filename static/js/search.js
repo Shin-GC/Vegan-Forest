@@ -4,7 +4,7 @@ function searchShop() {
   $.ajax({
     type: 'POST',
     url: '/search',
-    data: { search: search },
+    data: {search: search},
     success: function (response) {
       let test = JSON.parse(response);
       for (let i = 0; i < test.length; i++) {
@@ -13,7 +13,7 @@ function searchShop() {
         let latitude = test[i]['latitude'];
         let longitude = test[i]['longitude'];
         let img = test[i]['image'];
-        let temp_html = `<div class="full_list"><div class="list-item"><a href="https://map.naver.com/v5/search/${name}">
+        let temp_html = `<div class="full_list"><div class="list-item"><a href="https://map.naver.com/v5/search/${name}" target="_blank">
         <img src="${img}" onerror="this.src=../static/img/carrot.jpg">
         <p class="shopName">상호명 : ${name}</p>
         <p class="shopAdd">도로명주소 : ${location}</p></a>
@@ -24,6 +24,7 @@ function searchShop() {
     },
   });
 }
+
 // 초기화
 function clearShop() {
   $('#search-box').empty();
