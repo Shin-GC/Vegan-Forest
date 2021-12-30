@@ -13,4 +13,6 @@ class Vegan(db.Model):
     menu = db.Column(db.String(255))
     latitude = db.Column(db.String(30))
     longitude = db.Column(db.String(30))
+    region = db.Column(db.String(10))
+    image = db.Column(db.String(255))
 

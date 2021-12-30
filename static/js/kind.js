@@ -20,8 +20,7 @@ const strictExplain = document.querySelector('.explain#explain-strict');
 const flexiExplain = document.querySelector('.explain#explain-flexi');
 const fruitiExplain = document.querySelector('.explain#explain-fruiti');
 const rawExplain = document.querySelector('.explain#explain-raw');
-//테스트지롱
-const sleepyTest = document.querySelector('.sleepy#hungry');
+
 
 function vegeClick() {
   vegeExplain.style.display = vegeExplain.style.display == 'none' ? 'block' : 'none';
