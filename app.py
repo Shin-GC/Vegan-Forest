@@ -28,7 +28,7 @@ app.config['SECRET_KEY'] = secrets
 
 db.init_app(app)
 db.app = app
-db.create_all()
+db.create_all() # 데이터베이스 초기화
 
 
 @app.route("/")

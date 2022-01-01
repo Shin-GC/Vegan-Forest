@@ -1,6 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
 
-db = SQLAlchemy()
+db = SQLAlchemy()  # SQLAlchemy 객체 생성
 
 
 class Vegan(db.Model):
@@ -15,4 +17,14 @@ class Vegan(db.Model):
     longitude = db.Column(db.String(30))
     region = db.Column(db.String(10))
     image = db.Column(db.String(255))
+    user = db.relationship("Users", backref="vegan")
 
+
+class Users(db.Model):
+    __tablename__ = "users"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.String(64))
+    password = db.Column(db.String(255))
+    email = db.Column(db.String(255))
+    favorites = db.Column(db.Integer, ForeignKey("vegan.id"))
