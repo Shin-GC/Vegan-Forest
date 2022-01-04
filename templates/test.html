@@ -1,50 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8"/>
-  <title>Kakao 지도 시작하기</title>
-  <style>
-    #map {
-      margin: 50px auto auto;
-    }
-  </style>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css" media="screen,projection"/>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
 </head>
+<style>
 
+</style>
 <body>
-<!-- 지도를 표시할 div 입니다 -->
-<div id="map" style="width:50%;height:350px;"></div>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=69b8e1f84a0fbc6485af731d54d1970a"></script>
-<script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
+<nav style="margin-bottom: 100px; height: 100px;">
+  <div class="nav-wrapper" style="background-color: #89a831">
+    <a href="#" class="brand-logo" style="margin-left: 50px;"><img src="../static/img/logo.png" alt="로고"/></a>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <form class="col s12">
+      <div class="row ">
+        <div class="input-field col s3 push-s4 ">
+          <i class="material-icons prefix ">account_circle</i>
+          <input placeholder="이름을 작성해주세요." id="nickname" type="text" class="validate"
+                 data-length="10" onblur="nameCheck()" onfocus="nameCheck()" onchange="nameCheck()" required>
+          <label for="icon_prefix">이름</label>
+          <span class="helper-text" data-error="특수문자를 포함하거나 10글자를 넘을 수 없습니다." data-success="올바른 이름 입니다."></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s3 push-s4">
+          <i class="material-icons prefix">security</i>
+          <input placeholder="비밀번호를 작성해주세요." id="password" type="password" class="validate" required>
+          <label for="password">Password</label>
+          <span class="helper-text" data-error="패스워드를 작성해주세요." data-success="통과"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s3 push-s4">
+          <i class="material-icons prefix">check</i>
+          <input placeholder="비밀번호를 한번 더 작성해주세요." id="password2" type="password" class="validate" onblur="pwdCheck()"
+                 onfocus="pwdCheck()" onchange="pwdCheck()" required>
+          <label for="password2">Confirm Password</label>
+          <span class="helper-text" data-error="패스워드가 서로 같지 않습니다." data-success="통과"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s3 push-s4">
+          <i class="material-icons prefix">email</i>
+          <input placeholder="이메일을 입력해주세요." id="email icon_prefix" type="email" class="validate">
+          <label for="email icon_prefix">Email</label>
+          <span class="helper-text" data-error="올바르지 않은 이메일 형식 입니다." data-success="통과"></span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
-<script>
-  var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-    mapOption = {
-      center: new kakao.maps.LatLng(37.5739037, 126.9832035), // 지도의 중심좌표
-      level: 3 // 지도의 확대 레벨
-    };
-  // 지도를 표시할 div와 지도 옵션으로 지도를 생성합니다
-  var map = new kakao.maps.Map(mapContainer, mapOption);
-  var markerPosition = new kakao.maps.LatLng(37.5739037, 126.9832035);
-  var marker = new kakao.maps.Marker({
-    position: markerPosition
-  });
-  marker.setMap(map);
-  var iwContent = '<div style="padding:5px;">발우공양 <br><a href="https://map.kakao.com/link/map/발우공양,37.5739037,126.9832035" ' +
-      'style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/발우공양,37.5739037,126.9832035" ' +
-      'style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-    iwPosition = new kakao.maps.LatLng(37.5739037, 126.9832035); //인포윈도우 표시 위치입니다
-
-  // 인포윈도우를 생성합니다
-  var infowindow = new kakao.maps.InfoWindow({
-    position: iwPosition,
-    content: iwContent
-  });
-
-  // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-  infowindow.open(map, marker);
-</script>
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="../static/js/materialize.min.js"></script>
+<script src="../static/js/validate.js"></script>
 </body>
 </html>
-
-
