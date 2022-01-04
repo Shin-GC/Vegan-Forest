@@ -20,40 +20,48 @@
 </nav>
 <div class="container">
   <div class="row">
-    <form class="col s12">
+    <form class="col s12" action="/signup" method="POST">
       <div class="row ">
         <div class="input-field col s3 push-s4 ">
           <i class="material-icons prefix ">account_circle</i>
-          <input placeholder="이름을 작성해주세요." id="nickname" type="text" class="validate"
+          <input placeholder="이름을 작성해주세요." id="nickname" type="text" name="id" class="validate"
                  data-length="10" onblur="nameCheck()" onfocus="nameCheck()" onchange="nameCheck()" required>
-          <label for="icon_prefix">이름</label>
-          <span class="helper-text" data-error="특수문자를 포함하거나 10글자를 넘을 수 없습니다." data-success="올바른 이름 입니다."></span>
+          <label for="nickname">이름</label>
+          <span class="helper-text" id="nick-error" data-success="올바른 이름 입니다."></span>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s3 push-s4">
           <i class="material-icons prefix">security</i>
-          <input placeholder="비밀번호를 작성해주세요." id="password" type="password" class="validate" required>
+          <input placeholder="비밀번호를 작성해주세요." id="password" type="password" name="password" class="validate" onblur="pwdCheck()"
+                 onfocus="pwdCheck()" onchange="pwdCheck()" required>
           <label for="password">Password</label>
-          <span class="helper-text" data-error="패스워드를 작성해주세요." data-success="통과"></span>
+          <span class="helper-text" id="pwd-error" data-success="통과"></span>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s3 push-s4">
           <i class="material-icons prefix">check</i>
-          <input placeholder="비밀번호를 한번 더 작성해주세요." id="password2" type="password" class="validate" onblur="pwdCheck()"
-                 onfocus="pwdCheck()" onchange="pwdCheck()" required>
+          <input placeholder="비밀번호를 한번 더 작성해주세요." id="password2" name="password2" type="password" class="validate"
+                 onblur="pwdConfirmCheck()"
+                 onfocus="pwdConfirmCheck()" onchange="pwdConfirmCheck()" required>
           <label for="password2">Confirm Password</label>
-          <span class="helper-text" data-error="패스워드가 서로 같지 않습니다." data-success="통과"></span>
+          <span class="helper-text" id="pwd-confirm-error" data-success="통과"></span>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s3 push-s4">
           <i class="material-icons prefix">email</i>
-          <input placeholder="이메일을 입력해주세요." id="email icon_prefix" type="email" class="validate">
+          <input placeholder="이메일을 입력해주세요." id="email icon_prefix" name="email" type="email" class="validate" onblur="submitCheck()"
+                 onfocus="submitCheck()" onchange="submitCheck()" required>
           <label for="email icon_prefix">Email</label>
           <span class="helper-text" data-error="올바르지 않은 이메일 형식 입니다." data-success="통과"></span>
         </div>
+      </div>
+      <div class="col s3 push-s5">
+        <button id="submit-confirm" class="btn waves-effect waves-light disabled" type="submit" name="action">가입하기
+          <i class="material-icons right">send</i>
+        </button>
       </div>
     </form>
   </div>

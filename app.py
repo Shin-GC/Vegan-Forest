@@ -1,7 +1,7 @@
 import os
 import json
 from flask import Flask, render_template, request
-from models import db, Vegan
+from models import db, Vegan, User
 
 app = Flask(__name__)
 
@@ -28,7 +28,7 @@ app.config['SECRET_KEY'] = secrets
 
 db.init_app(app)
 db.app = app
-db.create_all() # 데이터베이스 초기화
+db.create_all()  # 데이터베이스 초기화
 
 
 @app.route("/")
@@ -61,6 +61,22 @@ def shop_search():
     print(data)
     return data
 
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'GET':
+        return render_template("signup.html")
+    else:
+        user_id = request.form["id"]
+        password = request.form["password"]
+        email = request.form["email"]
+        user = User(user_id=user_id,
+                    password=password,
+                    email=email,
+                    )
+        db.session.add(user)
+        db.session.commit()
+        return render_template("main.html",)
 
 if __name__ == "__main__":
     app.debug = True

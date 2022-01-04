@@ -56,12 +56,6 @@ def image_scraping(search):
         vegan = f"../static/img/carrot.jpg"
 
 
-user = User(user_id="tester",
-            password="testpassword",
-            email="test@example.com",
-            )
-db.session.add(user)
-db.session.commit()
 # db.session.delete(Vegan.query.get(972))
 
 # vegan = Vegan(id=1, shop="502 세컨즈카페", address="서울 노원구 섬밭로 232 우성아파트", sector="양식",
