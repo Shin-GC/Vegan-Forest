@@ -17,10 +17,10 @@ class Vegan(db.Model):
     longitude = db.Column(db.String(30))
     region = db.Column(db.String(10))
     image = db.Column(db.String(255))
-    user = db.relationship("User", backref="vegan")
+    user = db.relationship("Users", backref="vegan")
 
 
-class User(db.Model):
+class Users(db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
